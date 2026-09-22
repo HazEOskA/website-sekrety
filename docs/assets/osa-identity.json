@@ -1,1 +1,24 @@
-{"brand":"OSA","system_name":"Sekrety","author":"Bartosz Osiński","identity_version":"2.0-svg","system_type":"Beauty Website Research + Conversion Blueprint","one_sentence_essence":"Beauty research turned into a booking-focused implementation blueprint.","logo_path":"docs/assets/osa-system-logo.svg","banner_path":"docs/assets/osa-hero-banner.svg","logo_metaphor":"premium beauty lotus + conversion surface","brand_dna":["dark","premium","rose-gold","clean","conversion"],"visual_status":"PROVEN"}
+{
+  "brand": "OSA",
+  "system_name": "Sekrety",
+  "author": "Bartosz Osiński",
+  "identity_version": "3.0",
+  "system_type": "Beauty Website Research + Conversion Blueprint",
+  "one_sentence_essence": "Beauty research turned into a booking-focused implementation blueprint.",
+  "hero_path": "docs/assets/hero-banner.png",
+  "logo_path": "docs/assets/logo-square.png",
+  "og_card_path": null,
+  "icon_path": null,
+  "mascot_path": null,
+  "logo_metaphor": "premium beauty lotus and conversion path",
+  "brand_dna": [
+    "dark",
+    "premium",
+    "rose-gold",
+    "clean",
+    "conversion"
+  ],
+  "functional_accent": "rose-gold",
+  "primary_format": "png",
+  "policy": "hero-first, png-first, verify-before-embed"
+}

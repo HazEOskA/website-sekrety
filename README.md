@@ -1,5 +1,6 @@
-<p align="center"><img src="./docs/assets/osa-hero-banner.svg" alt="Sekrety beauty website blueprint" width="100%"/></p>
-<p align="center"><img src="./docs/assets/osa-system-logo.svg" alt="Sekrety system logo" width="180"/></p>
+<p align="center">
+  <img src="./docs/assets/hero-banner.png" alt="Sekrety — Beauty Website Research + Conversion Blueprint" width="100%" />
+</p>
 
 # Sekrety
 ### Beauty Website Research + Conversion Blueprint
@@ -8,11 +9,7 @@
 
 `NEXT.JS` `BOOKING` `LOCAL SEO` `BEFORE / AFTER` `SOCIAL PROOF` `MOBILE FIRST`
 
-## Co jest w tym repo
-
-Repo zawiera rozbudowany audyt polskich i światowych stron beauty oraz specyfikację wdrożeniową opartą o realne wzorce: booking CTA, usługi problem→rozwiązanie, before/after, personal brand, cennik, testimonials, FAQ, local SEO i NAP.
-
-Warstwa aplikacyjna deklaruje stack Next.js / React / TypeScript / Tailwind / Prisma w `package.json`. **Kompletność działającej aplikacji nie została w tym README passie ponownie zweryfikowana.**
+---
 
 ## System in one view
 
@@ -26,6 +23,12 @@ flowchart LR
   F --> B[External Booking]
   B --> C[Client Conversion]
 ```
+
+## Co jest w tym repo
+
+Repo zawiera rozbudowany audyt polskich i światowych stron beauty oraz specyfikację wdrożeniową opartą o realne wzorce: booking CTA, usługi problem→rozwiązanie, before/after, personal brand, cennik, testimonials, FAQ, local SEO i NAP.
+
+Warstwa aplikacyjna deklaruje stack Next.js / React / TypeScript / Tailwind / Prisma w `package.json`. **Kompletność działającej aplikacji nie została w tym README passie ponownie zweryfikowana.**
 
 ## Blueprint
 
@@ -92,5 +95,11 @@ Fresh results: **NOT VERIFIED IN THIS PASS**.
 | Declared frontend stack | `PROVEN — package.json` |
 | Working application | `UNKNOWN / NOT VERIFIED` |
 | Production deployment | `UNKNOWN / NOT VERIFIED` |
+
+## Identity
+
+<p align="center">
+  <img src="./docs/assets/logo-square.png" alt="Sekrety logo" width="220" />
+</p>
 
 **Research first. Conversion second. No fake case-study claims.**
